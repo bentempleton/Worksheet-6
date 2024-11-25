@@ -27,4 +27,3 @@ CHIP A6Q2201730958 {
     Or(a=or1, b=term3, out=or2);
     Or(a=or2, b=term4, out=f);
 }
-

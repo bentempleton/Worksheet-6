@@ -8,7 +8,7 @@ CHIP A6Q2201730958 {
     Not(in=c, out=notc);
     Not(in=d, out=notd);
 
-    And(a=nota, b=nb, out=step1);
+    And(a=nota, b=notb, out=step1);
     And(a=step1, b=notc, out=step2);
     And(a=step2, b=d, out=term1);
 

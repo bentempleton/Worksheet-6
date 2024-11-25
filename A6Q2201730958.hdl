@@ -3,22 +3,22 @@ CHIP A6Q2201730958 {
     OUT f;
 
     PARTS:
-    Not(in=a, out=na);
-    Not(in=b, out=nb);
-    Not(in=c, out=n_c);
-    Not(in=d, out=nd);
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Not(in=c, out=notc);
+    Not(in=d, out=notd);
 
-    And(a=na, b=nb, out=step1);
-    And(a=step1, b=n_c, out=step2);
+    And(a=nota, b=nb, out=step1);
+    And(a=step1, b=notc, out=step2);
     And(a=step2, b=d, out=term1);
 
-    And(a=na, b=b, out=step3);
+    And(a=nota, b=b, out=step3);
     And(a=step3, b=c, out=step4);
-    And(a=step4, b=nd, out=term2);
+    And(a=step4, b=notd, out=term2);
 
-    And(a=a, b=nb, out=step5);
+    And(a=a, b=notb, out=step5);
     And(a=step5, b=c, out=step6);
-    And(a=step6, b=nd, out=term3);
+    And(a=step6, b=notd, out=term3);
 
     And(a=a, b=b, out=step7);
     And(a=step7, b=d, out=term4);

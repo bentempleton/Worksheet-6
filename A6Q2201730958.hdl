@@ -1,0 +1,18 @@
+CHIP A6Q2201730958 {
+    IN a, b, c, d;         
+    OUT f;                 
+
+    PARTS:
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Not(in=c, out=notc);
+    Not(in=d, out=notd);
+
+    And(a=nota, b=notb, c=notc, d=d, out=out1);  
+    And(a=nota, b=b, c=c, d=notd, out=out2);      
+    And(a=a, b=b, c=notc, d=d, out=out3);          
+
+    // OR gate to combine all the terms
+    Or(a=out1, b=out2, out=OR1);
+    Or(a=OR1, b=out3, out=f);  
+}

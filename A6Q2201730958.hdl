@@ -1,28 +1,25 @@
 CHIP A6Q2201730958 {
-    IN a, b, c, d;         // Inputs
-    OUT f;                 // Output
+    IN a, b, c, d;
+    OUT f;
 
     PARTS:
-    
-    Not(in=a, out=nota);  
-    Not(in=b, out=notb);  
-    Not(in=c, out=notc);  
-    Not(in=d, out=notd); 
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Not(in=c, out=notc);
+    Not(in=d, out=notd);
 
-   
-    And(a=nota, b=notb, out=first_out1);  
-    And(a=first_part1, b=not_c, out=first_out2); 
-    And(a=first_part2, b=d, out=first_out); 
+    And(a=nota, b=notb, out=first_out1);
+    And(a=first_out1, b=notc, out=first_out2);
+    And(a=first_out2, b=d, out=first_out);
 
-    
-    And(a=nota, b=b, out=second_out1);      
-    And(a=second_part1, b=c, out=second_out2); 
-    And(a=second_part2, b=notd, out=second_out); 
+    And(a=nota, b=b, out=second_out1);
+    And(a=second_out1, b=c, out=second_out2);
+    And(a=second_out2, b=notd, out=second_out);
 
-    
-    And(a=a, b=b, out=third_out1);         
-    And(a=third_part1, b=d, out=third_out); 
+    And(a=a, b=b, out=third_out1);
+    And(a=third_out1, b=d, out=third_out);
 
-   
-    Or(a=first_out, b=second_out, out=or1);  
-    Or(a=or1, b=third_out, out=f);                 
+    Or(a=first_out, b=second_out, out=or1);
+    Or(a=or1, b=third_out, out=f);
+}
+
